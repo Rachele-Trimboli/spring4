@@ -1,12 +1,26 @@
 package com.example.spring4.entities;
 
+import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 
+import lombok.Setter;
+import lombok.ToString;
+
+@Entity
+@Table(name = "topping")
 @Getter
 @Setter
+@ToString
 
 public class Topping extends Item {
+    @Id
+    @GeneratedValue
+    private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "pizza_id")
+    private Pizza pizza;
+
     private String name;
 
     public Topping(String name, int calories, double price) {
@@ -14,12 +28,5 @@ public class Topping extends Item {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Topping{" +
-                "name='" + name + '\'' +
-                ", calories=" + calories +
-                ", price=" + price +
-                '}';
-    }
+
 }

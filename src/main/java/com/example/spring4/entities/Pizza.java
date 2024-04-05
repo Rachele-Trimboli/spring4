@@ -1,16 +1,29 @@
 package com.example.spring4.entities;
 
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.List;
 
+@Entity
+@Table(name = "pizza")
 @Getter
+@Setter
+@ToString
 public class Pizza extends Item {
+
+    @Id
+    @GeneratedValue
+    private long id;
     private String name;
 
+    @OneToMany(mappedBy = "pizza")
     private List<Topping> toppingList;
     private boolean isXl = false;
-
+    public void Pizza(){}
     public Pizza(String name, List<Topping> toppingList, boolean isXl) {
         super(1012, 4.3);
         this.name = name;
@@ -43,14 +56,5 @@ public class Pizza extends Item {
         else return tot;
     }
 
-    @Override
-    public String toString() {
-        return "Pizza{" +
-                "name='" + name + '\'' +
-                ", calories=" + calories +
-                ", price=" + price +
-                ", toppingList=" + toppingList +
-                ", isXl=" + isXl +
-                '}';
-    }
+
 }

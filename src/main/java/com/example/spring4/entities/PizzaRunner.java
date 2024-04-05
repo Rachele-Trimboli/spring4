@@ -40,9 +40,9 @@ public class PizzaRunner implements CommandLineRunner {
         Drink drink2 = (Drink) ctx.getBean("water");
         Drink drink3 = (Drink) ctx.getBean("wine");
 
-        drinkService.saveDrink(drink1);
-        drinkService.saveDrink(drink2);
-        drinkService.saveDrink(drink3);
+        //drinkService.saveDrink(drink1);
+        //drinkService.saveDrink(drink2);
+        //drinkService.saveDrink(drink3);
 
 
         System.out.println("--------------SALVATAGGIO TOPPING---------------");
@@ -51,9 +51,12 @@ public class PizzaRunner implements CommandLineRunner {
         Topping topping2 = (Topping) ctx.getBean("toppings_cheese");
         Topping topping3 = (Topping) ctx.getBean("toppings_ham");
 
-        toppingService.saveTopping(topping1);
-        toppingService.saveTopping(topping2);
-        toppingService.saveTopping(topping3);
+        //toppingService.saveTopping(topping1);
+        //toppingService.saveTopping(topping2);
+        //toppingService.saveTopping(topping3);
+
+        System.out.println("------------CERCA PIAZZA PER NOME----------");
+
 
 
 
